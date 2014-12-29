@@ -1,0 +1,76 @@
+<header id="page-header">
+    <div class="text-center" >
+        <p>Ads &ndash; Home</p>
+    </div>
+</header>
+
+<aside>
+    <div class="left-sidebar col-lg-2 col-md-2 col-sm-3 col-xs-3">
+        <div class="text-center col-lg-offset-0" id="heading">To publish a new ad, please login.</div>
+        <div class="text-center">
+            <a href="#/login" class="btn btn-default btn-lg submit">Login</a>
+            <a href="#/register" class="btn btn-default btn-lg submit">Register</a>
+        </div>
+    </div>
+</aside>
+
+<section class="container-fluid">
+    <div class="ads col-lg-offset-4" ng-controller="AdsController">
+        <ul>
+            <li ng-repeat="ad in data.ads">
+                <div class="jumbotron ad-container">
+                    <div class="row clearfix">
+                        <h4>{{ ad.title }}</h4>
+                        <time class="pull-right">{{ ad.date | date:'d-MMM-yyyy' }}</time>
+                    </div>
+                    <div class="image-container pull-left">
+                        <img ng-src="{{ ad.imageDataUrl }}" class="img"/>
+                        <img data-ng-if="!ad.imageDataUrl" data-ng-src="images/no-image.png" class="img"/>
+                    </div>
+                    <div class="">
+                        <div class="well well-md ad-text">{{ ad.text }}</div>
+                        <span>Name</span>
+                        <div class="well well-sm ownerInfo">{{ ad.ownerName }}</div>
+                        <span>Email</span>
+                        <div class="well well-sm ownerInfo"> <a href="mailto:{{ad.ownerEmail}}">{{ad.ownerEmail}}</a></div>
+                        <span>Tel</span>
+                        <div class="well well-sm ownerInfo">{{ ad.ownerPhone }}</div>
+                    </div>
+
+                </div>
+            </li>
+        </ul>
+    </div>
+</section>
+
+    <!--<aside class="filters pull-right">-->
+
+        <!--<div ng-controller="CategoriesController">-->
+            <!--<header class="form-header">Categories</header>-->
+            <!--<hr/>-->
+
+            <!--<ul>-->
+                <!--<li>-->
+                    <!--<button>All</button>-->
+                <!--</li>-->
+                <!--<li ng-repeat="category in data">-->
+                    <!--<button>{{ category.name }}</button>-->
+                <!--</li>-->
+            <!--</ul>-->
+        <!--</div>-->
+
+        <!--<div ng-controller="TownsController">-->
+            <!--<header class="form-header">Towns</header>-->
+            <!--<hr/>-->
+
+            <!--<ul>-->
+                <!--<li>-->
+                    <!--<button>All</button>-->
+                <!--</li>-->
+                <!--<li ng-repeat="town in data">-->
+                    <!--<button>{{ town.name }}</button>-->
+                <!--</li>-->
+            <!--</ul>-->
+        <!--</div>-->
+    <!--</aside>-->
+

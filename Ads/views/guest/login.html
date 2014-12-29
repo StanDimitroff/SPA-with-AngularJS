@@ -1,18 +1,35 @@
+<header id="page-header">
+    <div class="text-center" >
+        <p>Ads &ndash; Login</p>
+    </div>
+</header>
+
+<aside>
+    <div class="nav col-lg-2 col-md-2 col-sm-3 col-xs-3 col-lg-offset-1">
+        <p>To publish a new ad, please login.</p>
+        <div class="col-lg-offset-2">
+            <a href="#/login" class="btn btn-default btn-md submit">Login</a>
+            <a href="#/register" class="btn btn-default btn-md submit">Register</a>
+        </div>
+    </div>
+</aside>
+
 <section>
-    <div id="login-form">
+    <div id="login-form" class="form col-md-3">
 
         <header class="form-header">Login</header>
+        <hr/>
 
-        <div class="data">
+        <div class="data form-group ">
             <label for="username">Username:</label>
-            <input type="text" id="username"/>
+            <input type="text" class="form-control" id="username"/>
             <label for="password">Password:</label>
-            <input type="password" id="password"/>
+            <input type="password" class="form-control" id="password"/>
         </div>
 
         <div class="panel">
-            <button>Login</button>
-            <a href="#/register">Register here</a>
+            <button class="btn btn-default btn-md submit">Login</button>
+            <a href="#/register" class="link">Register here</a>
         </div>
 
     </div>
