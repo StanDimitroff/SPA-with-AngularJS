@@ -8,6 +8,7 @@
 html, body {
     height: 100%;
     font-family: Calibri, sans-serif;
+    overflow: auto;
 }
 
 #wrapper {
@@ -50,6 +51,7 @@ html, body {
 
 /*left sidebar*/
 div.left-sidebar {
+    position: fixed;
     border: 1px solid #548235;
     background-color: #A9D18E;
     box-shadow: 0 0 8px #888888;
@@ -83,6 +85,7 @@ div.form {
     padding-left: 30px;
     padding-right: 30px;
     box-shadow: 0 0 8px #888888;
+    margin-top:100px;
 }
 
 .form-header {
