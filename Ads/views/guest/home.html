@@ -4,18 +4,9 @@
     </div>
 </header>
 
-<aside>
-    <div class="left-sidebar col-lg-2 col-md-2 col-sm-3 col-xs-3">
-        <div class="text-center col-lg-offset-0" id="heading">To publish a new ad, please login.</div>
-        <div class="text-center">
-            <a href="#/login" class="btn btn-default btn-lg submit">Login</a>
-            <a href="#/register" class="btn btn-default btn-lg submit">Register</a>
-        </div>
-    </div>
-</aside>
 
 <section class="container-fluid" ng-controller="AdsController">
-    <div class="ads col-lg-offset-4">
+    <div class="ads  col-lg-offset-4" >
         <div class="jumbotron ad-container" ng-repeat="ad in data.ads">
             <div class="row">
                 <div class="col-lg-6">
@@ -41,43 +32,46 @@
             </div>
         </div>
     </div>
+    <div class="text-center">
+        <pagination total-items="totalItems" items-per-page="adsPerPage" ng-change="changePage()" ng-model="currentPage" max-size="maxSize" class="pagination" boundary-links="true"></pagination>
+    </div>
+
 </section>
 
-<!--<aside>-->
-<!--<div class="filters pull-right col-lg-3">-->
-<!--<div class="">-->
-<!--<header class="form-header">Categories</header>-->
-<!--<hr/>-->
-<!--<div>-->
-<!--<ul>-->
-<!--<li>-->
-<!--<div>-->
-<!--<button>All</button>-->
-<!--</div>-->
+<aside class="container-fluid">
+    <div class="filters col-lg-2 col-lg-offset-9">
+        <div class="category-filter" ng-controller="CategoriesController">
+            <header class="form-header">Categories</header>
+            <hr/>
+            <div>
+                <ul>
+                    <li>
+                        <div>
+                            <a href="" class="btn" role="button" ng-click="">All</a>
+                        </div>
+                    </li>
+                    <li ng-repeat="category in data">
+                        <div>
+                            <a href="" class="btn" role="button" ng-click="">{{ category.name }}</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
 
-<!--</li>-->
-<!--<li ng-repeat="category in data">-->
-<!--<div>-->
-<!--<button>{{ category.name }}</button>-->
-<!--</div>-->
-<!--</li>-->
-<!--</ul>-->
-<!--</div>-->
-<!--</div>-->
+        <div class="town-filter" ng-controller="TownsController">
+            <header class="form-header">Towns</header>
+            <hr/>
 
-<!--<div ng-controller="TownsController">-->
-<!--<header class="form-header">Towns</header>-->
-<!--<hr/>-->
-
-<!--<ul>-->
-<!--<li>-->
-<!--<button>All</button>-->
-<!--</li>-->
-<!--<li ng-repeat="town in data">-->
-<!--<button>{{ town.name }}</button>-->
-<!--</li>-->
-<!--</ul>-->
-<!--</div>-->
-</div>
+            <ul>
+                <li>
+                    <a href="">All</a>
+                </li>
+                <li ng-repeat="town in data">
+                    <a href="">{{ town.name }}</a>
+                </li>
+            </ul>
+        </div>
+    </div>
 </aside>
 

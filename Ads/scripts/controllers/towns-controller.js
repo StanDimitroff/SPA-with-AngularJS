@@ -1,13 +1,12 @@
 'use strict';
-
-var targetUrl = 'http://softuni-ads.azurewebsites.net/api/towns';
-app.controller('TownsController', function($scope, adsData){
-    adsData.getAllTowns(targetUrl)
-        .then(function (data) {
-            $scope.data = data;
-        },
-        function(error){
-            console.log(error);
-        });
-});
-
+(function(){
+    app.controller('TownsController', function TownsController(rootUrl, $scope, adsData){
+        adsData.getAllTowns(rootUrl + 'towns')
+            .then(function (data) {
+                $scope.data = data;
+            },
+            function(error){
+                console.log(error);
+            });
+    });
+}());

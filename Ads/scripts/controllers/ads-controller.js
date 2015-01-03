@@ -1,14 +1,21 @@
-'use strict';
+(function () {
+    app.controller('AdsController', function (rootUrl, adsPerPage, maxPagerSize, $rootScope, $scope, adsData) {
+        $scope.currentPage = 1;
+        $scope.adsPerPage = adsPerPage;
+        $scope.maxSize = maxPagerSize;
+        $scope.changePage = function () {
+            adsData.getAllAdsPerPage(rootUrl + 'ads', $scope.adsPerPage, $scope.currentPage)
+                .then(function (data) {
+                    $scope.data = data;
+                    $scope.totalItems = data.numItems;
+                })
+        };
 
-var targetUrl = 'http://softuni-ads.azurewebsites.net/api/ads';
-app.controller('AdsController', function ($scope, adsData) {
-    adsData.getAllAds(targetUrl)
-        .then(function (data) {
-            $scope.data = data;
-        },
-    function(error){
-        console.log(error);
-    });
+        adsData.getAllAdsPerPage(rootUrl + 'ads', $scope.adsPerPage, $scope.currentPage)
+            .then(function (data) {
+                $scope.data = data;
+                $scope.totalItems = data.numItems;
+            })
+    })
 
-
-});
+}());

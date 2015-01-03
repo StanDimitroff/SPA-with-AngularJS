@@ -9,9 +9,11 @@
 </head>
 <body>
 
-<div id="wrapper" ng-view>
+<aside ng-include="'views/guest/sidebar.html'"></aside>
 
-</div>
+<main id="wrapper">
+    <div ng-view></div>
+</main>
 
 <footer id="page-footer">
     <div class="text-center">
@@ -21,11 +23,13 @@
 
 <script src="node_modules/angular/angular.js"></script>
 <script src="node_modules/angular-route/angular-route.js"></script>
-<script src="node_modules/noty/js/noty/jquery.noty.js"></script>
+<script src="node_modules/noty/js/noty/packaged/jquery.noty.packaged.js"></script>
+<script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
 <script src="scripts/app.js"></script>
 <script src="scripts/services/ads-data.js"></script>
 <script src="scripts/controllers/ads-controller.js"></script>
-<!--<script src="scripts/controllers/categories-controller.js"></script>-->
-<!--<script src="scripts/controllers/towns-controller.js"></script>-->
+<script src="scripts/controllers/categories-controller.js"></script>
+<script src="scripts/controllers/towns-controller.js"></script>
+<!--<script src="scripts/controllers/pagination-controller.js"></script>-->
 </body>
 </html>
