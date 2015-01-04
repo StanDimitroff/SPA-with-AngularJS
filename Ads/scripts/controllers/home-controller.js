@@ -1,5 +1,5 @@
 (function () {
-    app.controller('HomeController', function (rootUrl, adsPerPage, maxPagerSize, $scope, adsData) {
+    app.controller('HomeController', function (rootUrl, adsPerPage, maxPagerSize, $scope, adsData, messages) {
         $scope.currentPage = 1;
         $scope.adsPerPage = adsPerPage;
         $scope.maxSize = maxPagerSize;
@@ -19,13 +19,12 @@
               })
         };
 
-//        $rootScope.getAllAds = function(){
-//
-//        };
         adsData.getAllAdsPerPage(rootUrl + 'ads', $scope.adsPerPage, $scope.currentPage)
             .then(function (data) {
                 $scope.ads = data;
                 $scope.totalItems = data.numItems;
+                messages.successMessage('User account created. Please login!');
+
             });
 
         adsData.getAllCategories(rootUrl + 'categories')

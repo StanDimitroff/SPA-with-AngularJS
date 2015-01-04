@@ -5,7 +5,7 @@
 </header>
 
 <section>
-    <div id="registration-form" class="form col-lg-5 col-lg-offset-4">
+    <div id="registration-form" class="form col-lg-5 col-lg-offset-4" ng-controller="RegisterController">
 
         <header class="form-header">User Registration</header>
         <hr/>
@@ -13,23 +13,23 @@
         <div class="data form-group">
             <div class="col-lg-6">
                 <label for="username">Username:</label>
-                <input type="text" id="username" class="form-control"/>
+                <input type="text" id="username" class="form-control" ng-model="user.username"/>
                 <label for="password">Password:</label>
-                <input type="password" id="password" class="form-control"/>
+                <input type="password" id="password" class="form-control" ng-model="user.password"/>
                 <label for="name">Name:</label>
-                <input type="text" id="name" class="form-control"/>
+                <input type="text" id="name" class="form-control" ng-model="user.name"/>
                 <label for="phone">Phone:</label>
-                <input type="text" id="phone" class="form-control"/>
-                <button class="btn btn-default btn-md submit" ng-style={"marginTop":"20px","marginLeft":"50px","marginBottom":"25px"}>Register</button>
+                <input type="text" id="phone" class="form-control" ng-model="user.phone"/>
+                <button class="btn btn-default btn-md submit" ng-click="register(user)" ng-style={"marginTop":"20px","marginLeft":"50px","marginBottom":"25px"}>Register</button>
             </div>
             <div class="col-lg-6" ng-style={"marginTop":"63px"}>
                 <label for="confirm-password">Confirm password:</label>
-                <input type="password" id="confirm-password" class="form-control"/>
+                <input type="password" id="confirm-password" class="form-control" ng-model="user.confirmPassword"/>
                 <label for="email">Email:</label>
-                <input type="text" id="email" class="form-control"/>
+                <input type="text" id="email" class="form-control" ng-model="user.email"/>
                 <label for="town">Town:</label>
-                <select name="" id="town" class="form-control">
-                    <option value="">{{town}}</option>
+                <select name="" id="town" class="form-control" ng-model="user.townId">
+                    <option value="" ng-repeat="town in towns">{{ town.name }}</option>
                 </select>
                 <a href="#/login" ng-style={"display":"block","marginTop":"25px","marginLeft":"70px"}>Login here</a>
             </div>
