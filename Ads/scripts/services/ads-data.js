@@ -28,6 +28,18 @@ app.factory('adsData', function adsData($http, $q) {
         return defer.promise;
     }
 
+    function getAdsByCategory(targetUrl, categoryId, pageSize, startPage) {
+        var defer = $q.defer();
+        $http.get(targetUrl + '?categoryid=' + categoryId +'&pagesize=' + pageSize + '&startpage=' + startPage)
+            .success(function (data, status, headers, config) {
+                defer.resolve(data);
+            })
+            .error(function (data, status, headers, config) {
+                defer.reject(data);
+            });
+        return defer.promise;
+    }
+
     function register(targetUrl, userData) {
         var defer = $q.defer();
         $http.post(targetUrl, userData)
@@ -63,6 +75,7 @@ app.factory('adsData', function adsData($http, $q) {
         getAllAdsPerPage: getAllAdsPerPage,
         getAllCategories: getAll,
         getAllTowns: getAll,
+        getAdsByCategory: getAdsByCategory,
         register: register,
         login: login
     }

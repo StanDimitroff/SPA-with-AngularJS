@@ -4,74 +4,76 @@
     </div>
 </header>
 
+<div ng-controller="HomeController">
 
-<section class="container-fluid" ng-controller="AdsController">
-    <div class="ads  col-lg-offset-4" >
-        <div class="jumbotron ad-container" ng-repeat="ad in data.ads">
-            <div class="row">
-                <div class="col-lg-6">
-                    <h4 ng-style={"fontWeight":"bold"}>{{ ad.title }}</h4>
+    <section class="container-fluid">
+        <div class="ads col-lg-offset-4">
+            <div class=" ad-container" ng-repeat="ad in ads.ads">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <h4 ng-style={"fontWeight":"bold"}>{{ ad.title }}</h4>
+                    </div>
+                    <div class="col-lg-6">
+                        <time class="pull-right" ng-style={"fontWeight":"bold"}>{{ ad.date | date:'d-MMM-yyyy' }}</time>
+                    </div>
+
+                    <div class="image-container">
+                        <img ng-src="{{ ad.imageDataUrl }}" class="img"/>
+                        <img data-ng-if="!ad.imageDataUrl" data-ng-src="images/no-image.png" class="img"/>
+                    </div>
+
+                    <div class="well well-md ad-text ">{{ ad.text }}</div>
+                    <span>Name</span>
+
+                    <div class="well well-sm ownerInfo">{{ ad.ownerName }}</div>
+                    <span>Email</span>
+
+                    <div class="well well-sm ownerInfo"><a href="mailto:{{ad.ownerEmail}}">{{ad.ownerEmail}}</a></div>
+                    <span>Tel</span>
+
+                    <div class="well well-sm ownerInfo">{{ ad.ownerPhone }}</div>
                 </div>
-                <div class="col-lg-6">
-                    <time class="pull-right" ng-style={"fontWeight":"bold"}>{{ ad.date | date:'d-MMM-yyyy' }}</time>
-                </div>
-                <div class="image-container">
-                    <img ng-src="{{ ad.imageDataUrl }}" class="img"/>
-                    <img data-ng-if="!ad.imageDataUrl" data-ng-src="images/no-image.png" class="img"/>
-                </div>
-                <div class="well well-md ad-text ">{{ ad.text }}</div>
-                <span>Name</span>
-
-                <div class="well well-sm ownerInfo">{{ ad.ownerName }}</div>
-                <span>Email</span>
-
-                <div class="well well-sm ownerInfo"><a href="mailto:{{ad.ownerEmail}}">{{ad.ownerEmail}}</a></div>
-                <span>Tel</span>
-
-                <div class="well well-sm ownerInfo">{{ ad.ownerPhone }}</div>
             </div>
         </div>
-    </div>
-    <div class="text-center">
-        <pagination total-items="totalItems" items-per-page="adsPerPage" ng-change="changePage()" ng-model="currentPage" max-size="maxSize" class="pagination" boundary-links="true"></pagination>
-    </div>
+        <div class="text-center">
+            <pagination total-items="totalItems" items-per-page="adsPerPage" ng-change="changePage()"
+                        ng-model="currentPage"
+                        max-size="maxSize" class="pagination" boundary-links="true"></pagination>
+        </div>
 
-</section>
+    </section>
 
-<aside class="container-fluid">
-    <div class="filters col-lg-2 col-lg-offset-9">
-        <div class="category-filter" ng-controller="CategoriesController">
-            <header class="form-header">Categories</header>
-            <hr/>
-            <div>
-                <ul>
-                    <li>
-                        <div>
-                            <a href="" class="btn" role="button" ng-click="">All</a>
-                        </div>
-                    </li>
-                    <li ng-repeat="category in data">
-                        <div>
-                            <a href="" class="btn" role="button" ng-click="">{{ category.name }}</a>
-                        </div>
-                    </li>
-                </ul>
+    <aside class="container-fluid">
+        <div class="filters col-lg-3">
+
+            <div class="category-filter">
+                <header class="form-header">Categories</header>
+                <hr/>
+                <div class="categories">
+                    <div>
+                        <a href="">All</a>
+                    </div>
+                    <div ng-repeat="category in categories">
+                        <a href="" id="{{ category.id }}" ng-click="filterAdsByCategory(category.id)">{{ category. name
+                            }}</a>
+                    </div>
+                </div>
             </div>
+
+
+            <div class="town-filter">
+                <header class="form-header">Towns</header>
+                <hr/>
+                <div class="towns">
+                    <div>
+                        <a href="">All</a>
+                    </div>
+                    <div ng-repeat="town in towns">
+                        <a href="" id="{{ town.id }}" ng-click="filterAds()">{{ town.name }}</a>
+                    </div>
+                </div>
+            </div>
+
         </div>
-
-        <div class="town-filter" ng-controller="TownsController">
-            <header class="form-header">Towns</header>
-            <hr/>
-
-            <ul>
-                <li>
-                    <a href="">All</a>
-                </li>
-                <li ng-repeat="town in data">
-                    <a href="">{{ town.name }}</a>
-                </li>
-            </ul>
-        </div>
-    </div>
-</aside>
-
+    </aside>
+</div>
