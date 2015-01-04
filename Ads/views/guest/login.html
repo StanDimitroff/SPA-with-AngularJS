@@ -3,13 +3,13 @@
 
         <header class="form-header">Login</header>
         <hr/>
-        <form action="" name="login-form">
+        <form name="loginForm" ng-submit="login(user, loginForm)">
             <div class="data form-group ">
                 <label for="username">Username:</label>
-                <input type="text" class="form-control" id="username" ng-model="user.username"/>
+                <input type="text" class="form-control" id="username" ng-model="user.username" required/>
                 <label for="password">Password:</label>
-                <input type="password" class="form-control" id="password" ng-model="user.password"/>
-                <button class="btn btn-default btn-md submit" ng-click="login(user)" ng-style={"marginTop":"20px","marginBottom":"15px"}>Login</button>
+                <input type="password" class="form-control" id="password" ng-model="user.password" required/>
+                <button class="btn btn-default btn-md submit"  ng-style={"marginTop":"20px","marginBottom":"15px"}>Login</button>
                 <a href="#/register" class="link pull-right" ng-style={"display":"block","marginTop":"25px"}>Register here</a>
             </div>
         </form>

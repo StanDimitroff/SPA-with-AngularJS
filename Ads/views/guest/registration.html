@@ -4,18 +4,18 @@
         <header class="form-header">User Registration</header>
         <hr/>
 
-        <form action="" name="register-form" >
+        <form action="" name="registerForm" ng-submit="register(user, resterForm)">
             <div class="data form-group">
                 <div class="col-lg-6">
                     <label for="username">Username:</label>
                     <input type="text" id="username" class="form-control" ng-model="user.username"  required/>
                     <label for="password">Password:</label>
-                    <input type="password" id="password" class="form-control" ng-model="user.password" ng-minlength="2" ng-maxlength="100" nrequired/>
+                    <input type="password" id="password" class="form-control" ng-model="user.password" ng-minlength="2" ng-maxlength="100" required/>
                     <label for="name">Name:</label>
-                    <input type="text" id="name" class="form-control" ng-model="user.name" ng-required/>
+                    <input type="text" id="name" class="form-control" ng-model="user.name" required/>
                     <label for="phone">Phone:</label>
                     <input type="text" id="phone" class="form-control" ng-model="user.phone"/>
-                    <button class="btn btn-default btn-md submit" ng-disabled="register-form.$invalid || user.password != user.confirmPassword"" ng-click="register(user)" ng-style={"marginTop":"20px","marginLeft":"50px","marginBottom":"25px"}>Register</button>
+                    <button class="btn btn-default btn-md submit" ng-style={"marginTop":"20px","marginLeft":"50px","marginBottom":"25px"}>Register</button>
                 </div>
                 <div class="col-lg-6" ng-style={"marginTop":"63px"}>
                     <label for="confirm-password">Confirm password:</label>
