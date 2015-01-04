@@ -28,7 +28,7 @@ html, body {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 99%;
     height: 40px;
     border-bottom: 1px solid #548235;
     background: #A9D18E;
@@ -121,6 +121,9 @@ button.submit, a.submit {
 }
 
 button.submit:hover, a.submit:hover {
+    color: mediumseagreen;
+}
+button.submit:disabled{
     color: mediumseagreen;
 }
 

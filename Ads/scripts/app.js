@@ -16,7 +16,6 @@ var app = angular
             {
                 templateUrl: 'views/guest/registration.html'
             })
-//            -----USER-----
             .when('/user/home',
             {
                 templateUrl: 'views/user/home.html'

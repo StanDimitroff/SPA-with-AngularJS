@@ -5,7 +5,6 @@ app.factory('authData', function($http, $q){
         var defer = $q.defer();
         $http.post(targetUrl + 'user/register', userData)
             .success(function (data, status, headers, config) {
-                console.log("Register");
                 defer.resolve(data);
 
             })
@@ -18,9 +17,8 @@ app.factory('authData', function($http, $q){
 
     function login(targetUrl, userData) {
         var defer = $q.defer();
-        $http.post(targetUrl, userData)
+        $http.post(targetUrl + 'user/login', userData)
             .success(function (data, status, headers, config) {
-                console.log("Login");
                 defer.resolve(data);
 
             })

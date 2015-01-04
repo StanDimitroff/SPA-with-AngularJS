@@ -1,23 +1,18 @@
-<header id="page-header">
-    <div class="text-center" >
-        <p>Ads &ndash; Login</p>
-    </div>
-</header>
-
 <section class="">
-    <div id="login-form" class="form col-lg-3 col-lg-offset-4">
+    <div id="login-form" class="form col-lg-3 col-lg-offset-4" ng-controller="LoginController">
 
         <header class="form-header">Login</header>
         <hr/>
-
-        <div class="data form-group ">
-            <label for="username">Username:</label>
-            <input type="text" class="form-control" id="username"/>
-            <label for="password">Password:</label>
-            <input type="password" class="form-control" id="password"/>
-            <button class="btn btn-default btn-md submit" ng-style={"marginTop":"20px","marginBottom":"15px"}>Login</button>
-            <a href="#/register" class="link pull-right" ng-style={"display":"block","marginTop":"25px"}>Register here</a>
-        </div>
+        <form action="" name="login-form">
+            <div class="data form-group ">
+                <label for="username">Username:</label>
+                <input type="text" class="form-control" id="username" ng-model="user.username"/>
+                <label for="password">Password:</label>
+                <input type="password" class="form-control" id="password" ng-model="user.password"/>
+                <button class="btn btn-default btn-md submit" ng-click="login(user)" ng-style={"marginTop":"20px","marginBottom":"15px"}>Login</button>
+                <a href="#/register" class="link pull-right" ng-style={"display":"block","marginTop":"25px"}>Register here</a>
+            </div>
+        </form>
 
     </div>
 </section>

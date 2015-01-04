@@ -1,15 +1,9 @@
-<header id="page-header">
-    <div class="text-center">
-        <p>Ads &ndash; Registration</p>
-    </div>
-</header>
-
 <section>
     <div id="registration-form" class="form col-lg-5 col-lg-offset-4" ng-controller="RegisterController">
 
         <header class="form-header">User Registration</header>
         <hr/>
-        
+
         <form action="" name="register-form" >
             <div class="data form-group">
                 <div class="col-lg-6">
@@ -21,7 +15,7 @@
                     <input type="text" id="name" class="form-control" ng-model="user.name" ng-required/>
                     <label for="phone">Phone:</label>
                     <input type="text" id="phone" class="form-control" ng-model="user.phone"/>
-                    <button class="btn btn-default btn-md submit"  ng-click="register(user)" ng-style={"marginTop":"20px","marginLeft":"50px","marginBottom":"25px"}>Register</button>
+                    <button class="btn btn-default btn-md submit" ng-disabled="register-form.$invalid || user.password != user.confirmPassword"" ng-click="register(user)" ng-style={"marginTop":"20px","marginLeft":"50px","marginBottom":"25px"}>Register</button>
                 </div>
                 <div class="col-lg-6" ng-style={"marginTop":"63px"}>
                     <label for="confirm-password">Confirm password:</label>
