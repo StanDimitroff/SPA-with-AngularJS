@@ -23,8 +23,6 @@
             .then(function (data) {
                 $scope.ads = data;
                 $scope.totalItems = data.numItems;
-                messages.successMessage('User account created. Please login!');
-
             });
 
         adsData.getAllCategories(rootUrl + 'categories')

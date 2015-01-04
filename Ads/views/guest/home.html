@@ -19,7 +19,7 @@
 
                     <div class="image-container">
                         <img ng-src="{{ ad.imageDataUrl }}" class="img"/>
-                        <img data-ng-if="!ad.imageDataUrl" data-ng-src="images/no-image.png" class="img"/>
+                        <img data-ng-if="!ad.imageDataUrl" ng-src="images/no-image.png" class="img"/>
                     </div>
 
                     <div class="well well-md ad-text ">{{ ad.text }}</div>
