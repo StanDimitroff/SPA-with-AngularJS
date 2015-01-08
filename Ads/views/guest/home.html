@@ -1,10 +1,8 @@
-
-
 <div ng-controller="HomeController">
 
     <section class="container-fluid">
         <div class="ads col-lg-offset-4">
-            <div class=" ad-container" ng-repeat="ad in ads.ads">
+            <div class=" ad-container" ng-repeat="ad in ads">
                 <div class="row">
                     <div class="col-lg-6">
                         <h4 ng-style={"fontWeight":"bold"}>{{ ad.title }}</h4>
@@ -31,8 +29,8 @@
                 </div>
             </div>
         </div>
-        <div class="text-center">
-            <pagination total-items="totalItems" items-per-page="adsPerPage" ng-change="changePage()"
+        <div class="text-center" >
+            <pagination total-items="totalItems" items-per-page="adsPerPage" ng-click="changePage();"
                         ng-model="currentPage"
                         max-size="maxSize" class="pagination" boundary-links="true"></pagination>
         </div>
@@ -47,10 +45,10 @@
                 <hr/>
                 <div class="categories">
                     <div>
-                        <a href="">All</a>
+                        <a href="" ng-click="">All</a>
                     </div>
                     <div ng-repeat="category in categories">
-                        <a href="" id="{{ category.id }}" ng-click="filterAdsByCategory(category.id)">{{ category.name
+                        <a href="" ng-click="filterAdsByCategory(category.id)">{{ category.name
                             }}</a>
                     </div>
                 </div>
@@ -65,7 +63,7 @@
                         <a href="">All</a>
                     </div>
                     <div ng-repeat="town in towns">
-                        <a href="" id="{{ town.id }}" ng-click="filterAds()">{{ town.name }}</a>
+                        <a href="">{{ town.name }}</a>
                     </div>
                 </div>
             </div>
