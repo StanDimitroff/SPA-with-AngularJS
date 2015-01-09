@@ -47,7 +47,7 @@ var app = angular
     })
     .constant(
     {
-        'rootUrl': 'http://localhost:1337/api/',
+        'rootUrl': 'http://softuni-ads.azurewebsites.net/api/',
         'adsPerPage': 2,
         'maxPagerSize': 5
     });

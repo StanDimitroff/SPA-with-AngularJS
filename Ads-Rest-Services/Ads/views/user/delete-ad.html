@@ -1,19 +1,32 @@
-<section>
-    <div>
+<section class="container-fluid">
+    <div class="form col-lg-4 col-lg-offset-4">
         <header class="form-header">Confirm Deleting Ad?</header>
         <hr/>
+        <div class="row">
+            <div class="col-lg-6">
+                <h4 ng-style={"fontWeight":"bold"}>Title{{ ad.title }}</h4>
+            </div>
+            <div class="col-lg-6">
+                <time class="pull-right" ng-style={"fontWeight":"bold"}>Date{{ ad.date | date:'d-MMM-yyyy' }}</time>
+            </div>
 
-        <div class="data">
-            <textarea name="" id="" cols="30" rows="10" disabled>{{text}}</textarea>
-            <label for="category">Category:</label>
-            <input type="text" id="category" value="{{category}}" disabled/>
-            <label for="town">Town:</label>
-            <input type="text" id="town" value="{{town}}" disabled/>
+            <div class="image-container">
+                <img ng-src="{{ ad.imageDataUrl }}" class="img"/>
+                <img data-ng-if="!ad.imageDataUrl" ng-src="images/no-image.png" class="img"/>
+            </div>
+
+            <div class="well well-md ad-text ">Text{{ ad.text }}</div>
+            <span>Category:</span>
+
+            <div class="well well-sm ownerInfo">Cat{{ ad.ownerName }}</div>
+            <span>Town:</span>
+
+            <div class="well well-sm ownerInfo">Town</a></div>
+
         </div>
 
-        <div class="panel">
-            <button>Delete</button>
-            <a href="#/user/ads">Cancel</a>
+            <button class="btn btn-default btn-md submit">Delete</button>
+            <a href="#/user/ads" class="btn btn-default btn-md submit">Cancel</a>
         </div>
 
     </div>

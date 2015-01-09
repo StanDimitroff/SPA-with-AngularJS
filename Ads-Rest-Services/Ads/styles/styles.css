@@ -17,11 +17,11 @@ html, body {
     margin-bottom: -40px;
 }
 
-    #wrapper:after {
-        content: "";
-        display: block;
-        height: 40px;
-    }
+#wrapper:after {
+    content: "";
+    display: block;
+    height: 40px;
+}
 
 /*header*/
 #page-header {
@@ -35,7 +35,7 @@ html, body {
     padding-top: 5px;
     font-size: 1.9rem;
     font-weight: bold;
-    z-index:100;
+    z-index: 100;
 }
 
 /*footer*/
@@ -57,7 +57,7 @@ html, body {
 /*left sidebar*/
 div.left-sidebar {
     position: fixed;
-    top: 380px;
+    top: 360px;
     left: 50px;
     border: 1px solid #548235;
     background-color: #A9D18E;
@@ -74,7 +74,6 @@ div#heading {
 
 div.image-container {
     width: 100px;
-    /*height: 100px;*/
     border: 1px solid #548235;
     background-color: #A9D18E;
 }
@@ -110,7 +109,7 @@ hr {
     box-shadow: 1px 2px 10px #888888;
 }
 
-input.form-control, select.form-control {
+input.form-control, select.form-control,textarea.form-control {
     border-radius: 0;
     border: 1px solid #507E32;
 }
@@ -124,13 +123,13 @@ button.submit, a.submit {
     font-weight: bold;
 }
 
-    button.submit:hover, a.submit:hover {
-        color: mediumseagreen;
-    }
+button.submit:hover, a.submit:hover {
+    color: mediumseagreen;
+}
 
-    button.submit:disabled {
-        color: mediumseagreen;
-    }
+button.submit:disabled {
+    color: mediumseagreen;
+}
 
 a.submit {
     margin-bottom: 15px;
@@ -211,14 +210,19 @@ div.orange {
     margin-bottom: 5px;
 }
 
-    div.orange a {
-        color: black;
-        text-decoration: none;
-        padding: 5px;
-    }
+div.orange a {
+    color: black;
+    text-decoration: none;
+    padding: 5px;
+}
 
-        div.orange a:visited {
-            display: block;
-            background-color: #daa600;
-            border: 1px solid #7f6000;
-        }
+div.orange a:visited {
+    display: block;
+    background-color: #daa600;
+    border: 1px solid #7f6000;
+}
+div#edit-password-form{
+    position: absolute;
+    top:0px;
+    right: 200px;
+}
