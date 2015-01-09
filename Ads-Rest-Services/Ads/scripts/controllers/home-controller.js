@@ -7,14 +7,9 @@
             adsData.getAllAdsPerPage(rootUrl + 'ads', $scope.adsPerPage, $scope.currentPage)
                 .then(function (data) {
                     $scope.ads = data;
+                    $('html, body').animate({ scrollTop: 0 }, 'slow');
                 });
         };
-        $scope.scroll = function () {
-            $location.hash('top');
-
-            // call $anchorScroll()
-            $anchorScroll();
-        }
 
         $scope.filterAdsByCategory = function (categoryId) {
             $scope.category = categoryId;
