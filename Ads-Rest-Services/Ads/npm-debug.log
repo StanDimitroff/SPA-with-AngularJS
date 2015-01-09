@@ -1,0 +1,173 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'install',
+1 verbose cli   'notify' ]
+2 info using npm@1.4.14
+3 info using node@v0.10.29
+4 verbose node symlink C:\Program Files\nodejs\\node.exe
+5 verbose cache add [ 'notify', null ]
+6 verbose cache add name=undefined spec="notify" args=["notify",null]
+7 verbose parsed url { protocol: null,
+7 verbose parsed url   slashes: null,
+7 verbose parsed url   auth: null,
+7 verbose parsed url   host: null,
+7 verbose parsed url   port: null,
+7 verbose parsed url   hostname: null,
+7 verbose parsed url   hash: null,
+7 verbose parsed url   search: null,
+7 verbose parsed url   query: null,
+7 verbose parsed url   pathname: 'notify',
+7 verbose parsed url   path: 'notify',
+7 verbose parsed url   href: 'notify' }
+8 silly lockFile 4f08301d-notify notify
+9 verbose lock notify C:\Users\Stan\AppData\Roaming\npm-cache\4f08301d-notify.lock
+10 silly lockFile 4f08301d-notify notify
+11 silly lockFile 4f08301d-notify notify
+12 verbose addNamed [ 'notify', '' ]
+13 verbose addNamed [ null, '*' ]
+14 silly lockFile e5e1da5f-notify notify@
+15 verbose lock notify@ C:\Users\Stan\AppData\Roaming\npm-cache\e5e1da5f-notify.lock
+16 silly addNameRange { name: 'notify', range: '*', hasData: false }
+17 verbose url raw notify
+18 verbose url resolving [ 'https://registry.npmjs.org/', './notify' ]
+19 verbose url resolved https://registry.npmjs.org/notify
+20 info trying registry request attempt 1 at 18:38:29
+21 http GET https://registry.npmjs.org/notify
+22 http 200 https://registry.npmjs.org/notify
+23 silly registry.get cb [ 200,
+23 silly registry.get   { date: 'Sun, 04 Jan 2015 16:38:32 GMT',
+23 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+23 silly registry.get     etag: '"AMMM587DI00IYYIU8PTEWZNKA"',
+23 silly registry.get     'content-type': 'application/json',
+23 silly registry.get     'cache-control': 'max-age=60',
+23 silly registry.get     'content-length': '1424',
+23 silly registry.get     'accept-ranges': 'bytes',
+23 silly registry.get     via: '1.1 varnish',
+23 silly registry.get     age: '0',
+23 silly registry.get     'x-served-by': 'cache-fra1247-FRA',
+23 silly registry.get     'x-cache': 'MISS',
+23 silly registry.get     'x-cache-hits': '0',
+23 silly registry.get     'x-timer': 'S1420389512.207903,VS0,VE174',
+23 silly registry.get     vary: 'Accept',
+23 silly registry.get     'keep-alive': 'timeout=10, max=50',
+23 silly registry.get     connection: 'Keep-Alive' } ]
+24 silly addNameRange number 2 { name: 'notify', range: '*', hasData: true }
+25 silly addNameRange versions [ 'notify', [ '0.1.0' ] ]
+26 verbose addNamed [ 'notify', '0.1.0' ]
+27 verbose addNamed [ '0.1.0', '0.1.0' ]
+28 silly lockFile b0e6374d-notify-0-1-0 notify@0.1.0
+29 verbose lock notify@0.1.0 C:\Users\Stan\AppData\Roaming\npm-cache\b0e6374d-notify-0-1-0.lock
+30 silly lockFile 8a53d403-pmjs-org-notify-notify-0-1-0-tgz https://registry.npmjs.org/notify/-/notify-0.1.0.tgz
+31 verbose lock https://registry.npmjs.org/notify/-/notify-0.1.0.tgz C:\Users\Stan\AppData\Roaming\npm-cache\8a53d403-pmjs-org-notify-notify-0-1-0-tgz.lock
+32 verbose addRemoteTarball [ 'https://registry.npmjs.org/notify/-/notify-0.1.0.tgz',
+32 verbose addRemoteTarball   '0889d5edf9911d3d72fb12b9b73176c20727b05d' ]
+33 info retry fetch attempt 1 at 18:38:29
+34 verbose fetch to= C:\Users\Stan\AppData\Local\Temp\npm-9604-a4IPOsdE\registry.npmjs.org\notify\-\notify-0.1.0.tgz
+35 http GET https://registry.npmjs.org/notify/-/notify-0.1.0.tgz
+36 http 200 https://registry.npmjs.org/notify/-/notify-0.1.0.tgz
+37 silly lockFile 8a53d403-pmjs-org-notify-notify-0-1-0-tgz https://registry.npmjs.org/notify/-/notify-0.1.0.tgz
+38 silly lockFile 8a53d403-pmjs-org-notify-notify-0-1-0-tgz https://registry.npmjs.org/notify/-/notify-0.1.0.tgz
+39 silly lockFile b0e6374d-notify-0-1-0 notify@0.1.0
+40 silly lockFile b0e6374d-notify-0-1-0 notify@0.1.0
+41 silly lockFile e5e1da5f-notify notify@
+42 silly lockFile e5e1da5f-notify notify@
+43 silly resolved [ { name: 'notify',
+43 silly resolved     version: '0.1.0',
+43 silly resolved     description: 'Native Node.js C++ extension for displaying desktop notifications using GNOME\'s libnotify library.',
+43 silly resolved     homepage: 'https://github.com/olalonde/node-notify',
+43 silly resolved     author:
+43 silly resolved      { name: 'Olivier Lalonde',
+43 silly resolved        email: 'olalonde@gmail.com',
+43 silly resolved        url: 'http://www.syskall.com/' },
+43 silly resolved     repository:
+43 silly resolved      { type: 'git',
+43 silly resolved        url: 'https://github.com/olalonde/node-notify.git' },
+43 silly resolved     scripts:
+43 silly resolved      { preinstall: 'node-waf configure && node-waf build',
+43 silly resolved        preuninstall: 'rm -rf build/*' },
+43 silly resolved     main: 'build/default/gtknotify',
+43 silly resolved     _id: 'notify@0.1.0',
+43 silly resolved     engines: { node: '*' },
+43 silly resolved     _nodeSupported: true,
+43 silly resolved     _npmVersion: '0.2.10-1',
+43 silly resolved     _nodeVersion: 'v0.5.0-pre',
+43 silly resolved     dist:
+43 silly resolved      { shasum: '0889d5edf9911d3d72fb12b9b73176c20727b05d',
+43 silly resolved        tarball: 'http://registry.npmjs.org/notify/-/notify-0.1.0.tgz' },
+43 silly resolved     directories: {},
+43 silly resolved     _shasum: '0889d5edf9911d3d72fb12b9b73176c20727b05d',
+43 silly resolved     _from: 'notify@',
+43 silly resolved     _resolved: 'https://registry.npmjs.org/notify/-/notify-0.1.0.tgz' } ]
+44 info install notify@0.1.0 into E:\GitHub\SPA-with-AngularJS\Ads
+45 info installOne notify@0.1.0
+46 info E:\GitHub\SPA-with-AngularJS\Ads\node_modules\notify unbuild
+47 verbose tar unpack C:\Users\Stan\AppData\Roaming\npm-cache\notify\0.1.0\package.tgz
+48 silly lockFile 357746ee-ngularJS-Ads-node-modules-notify tar://E:\GitHub\SPA-with-AngularJS\Ads\node_modules\notify
+49 verbose lock tar://E:\GitHub\SPA-with-AngularJS\Ads\node_modules\notify C:\Users\Stan\AppData\Roaming\npm-cache\357746ee-ngularJS-Ads-node-modules-notify.lock
+50 silly lockFile c80509b7-m-cache-notify-0-1-0-package-tgz tar://C:\Users\Stan\AppData\Roaming\npm-cache\notify\0.1.0\package.tgz
+51 verbose lock tar://C:\Users\Stan\AppData\Roaming\npm-cache\notify\0.1.0\package.tgz C:\Users\Stan\AppData\Roaming\npm-cache\c80509b7-m-cache-notify-0-1-0-package-tgz.lock
+52 silly gunzTarPerm modes [ '755', '644' ]
+53 silly gunzTarPerm extractEntry
+54 silly gunzTarPerm extractEntry demo/
+55 silly gunzTarPerm extractEntry demo/demo.js
+56 silly gunzTarPerm extractEntry build/
+57 silly gunzTarPerm extractEntry build/default/
+58 silly gunzTarPerm extractEntry build/default/gtknotify.node
+59 silly gunzTarPerm extractEntry build/default/src/
+60 silly gunzTarPerm extractEntry build/default/src/node_gtknotify_1.o
+61 silly gunzTarPerm extractEntry build/c4che/
+62 silly gunzTarPerm extractEntry build/c4che/build.config.py
+63 silly gunzTarPerm extractEntry build/c4che/default.cache.py
+64 silly gunzTarPerm extractEntry build/.conf_check_0/
+65 silly gunzTarPerm extractEntry build/.conf_check_0/testbuild/
+66 silly gunzTarPerm extractEntry build/.conf_check_0/testbuild/default/
+67 silly gunzTarPerm extractEntry build/.conf_check_0/testbuild/default/test_1.o
+68 silly gunzTarPerm extractEntry build/.conf_check_0/testbuild/default/testprog
+69 silly gunzTarPerm extractEntry build/.conf_check_0/testbuild/.wafpickle-7
+70 silly gunzTarPerm extractEntry build/.conf_check_0/test.cpp
+71 silly gunzTarPerm extractEntry build/.wafpickle-7
+72 silly gunzTarPerm extractEntry build/.gitignore
+73 silly gunzTarPerm extractEntry build/config.log
+74 silly gunzTarPerm extractEntry package.json
+75 silly gunzTarPerm extractEntry LICENSE
+76 silly gunzTarPerm extractEntry .gitignore~
+77 silly gunzTarPerm extractEntry wscript
+78 silly gunzTarPerm extractEntry .gitignore
+79 silly gunzTarPerm extractEntry src/
+80 silly gunzTarPerm extractEntry src/node_gtknotify.cpp
+81 silly gunzTarPerm extractEntry README.md
+82 silly gunzTarPerm extractEntry TUTORIAL.md
+83 silly lockFile 357746ee-ngularJS-Ads-node-modules-notify tar://E:\GitHub\SPA-with-AngularJS\Ads\node_modules\notify
+84 silly lockFile 357746ee-ngularJS-Ads-node-modules-notify tar://E:\GitHub\SPA-with-AngularJS\Ads\node_modules\notify
+85 silly lockFile c80509b7-m-cache-notify-0-1-0-package-tgz tar://C:\Users\Stan\AppData\Roaming\npm-cache\notify\0.1.0\package.tgz
+86 silly lockFile c80509b7-m-cache-notify-0-1-0-package-tgz tar://C:\Users\Stan\AppData\Roaming\npm-cache\notify\0.1.0\package.tgz
+87 info preinstall notify@0.1.0
+88 verbose unsafe-perm in lifecycle true
+89 info notify@0.1.0 Failed to exec preinstall script
+90 info E:\GitHub\SPA-with-AngularJS\Ads\node_modules\notify unbuild
+91 info preuninstall notify@0.1.0
+92 verbose unsafe-perm in lifecycle true
+93 info notify@0.1.0 Failed to exec preuninstall script
+94 warn continuing anyway notify@0.1.0 preuninstall: `rm -rf build/*`
+94 warn continuing anyway Exit status 1
+95 info uninstall notify@0.1.0
+96 verbose true,E:\GitHub\SPA-with-AngularJS\Ads\node_modules,E:\GitHub\SPA-with-AngularJS\Ads\node_modules unbuild notify@0.1.0
+97 info postuninstall notify@0.1.0
+98 error notify@0.1.0 preinstall: `node-waf configure && node-waf build`
+98 error Exit status 1
+99 error Failed at the notify@0.1.0 preinstall script.
+99 error This is most likely a problem with the notify package,
+99 error not with npm itself.
+99 error Tell the author that this fails on your system:
+99 error     node-waf configure && node-waf build
+99 error You can get their info via:
+99 error     npm owner ls notify
+99 error There is likely additional logging output above.
+100 error System Windows_NT 6.1.7601
+101 error command "C:\\Program Files\\nodejs\\\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "install" "notify"
+102 error cwd E:\GitHub\SPA-with-AngularJS\Ads
+103 error node -v v0.10.29
+104 error npm -v 1.4.14
+105 error code ELIFECYCLE
+106 verbose exit [ 1, true ]
