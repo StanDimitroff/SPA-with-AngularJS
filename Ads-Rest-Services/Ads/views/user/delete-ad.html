@@ -18,14 +18,12 @@
             <div class="well well-md ad-text ">{{ ad.text }}</div>
             <div ng-show="ad.categoryName">
                 <span>Category:</span>
-
-                <div class="well well-sm " ng-show="ad.categoryName">{{ ad.categoryName }}</div>
+                <div class="well well-sm ownerInfo" ng-show="ad.categoryName">{{ ad.categoryName }}</div>
             </div>
             <div ng-show="ad.townName">
-                {{ town.name }}>
+                
                 <span>Town:</span>
-
-                <div class="well well-sm " </a></div>
+                <div class="well well-sm ownerInfo">{{ ad.townName }}</div>
             </div>
         </div>
 
