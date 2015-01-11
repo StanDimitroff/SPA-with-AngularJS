@@ -55,10 +55,7 @@ var app = angular
     .constant(
     {
         'adsPerPage': 2,
-        'maxPagerSize': 5
+        'maxPagerSize': 5,
     });
 
 var baseUrl = 'http://localhost:1337/api'
-
-var adsPerPage = 2;
-var maxPagerSize = 5

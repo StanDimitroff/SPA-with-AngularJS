@@ -34,8 +34,8 @@
     <div class="text-center">
         <pagination total-items="totalItems" items-per-page="adsPerPage" ng-change="changePage()"
                     ng-model="currentPage"
-                    max-size="maxSize" class="pagination" boundary-links="true" ng-show="showPager" ng-hide="!showPager"></pagination>
-        <label ng-show="!showPager" ng-hide="showPager">No items match your search criteria. Please refine.</label>
+                    max-size="maxSize" class="pagination" boundary-links="true" ng-show="totalItems > adsPerPage"></pagination>
+        <label ng-show="totalItems == 0">No items match your search criteria. Please refine.</label>
     </div>
 
 </section>

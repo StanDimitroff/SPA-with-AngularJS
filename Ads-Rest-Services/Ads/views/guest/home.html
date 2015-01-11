@@ -1,4 +1,4 @@
-<div ng-controller="HomeController">
+<div ng-controller="GuestHomeController">
 
     <section class="container-fluid">
         <div class="ads col-lg-offset-4">
@@ -32,8 +32,8 @@
         <div class="text-center">
             <pagination total-items="totalItems" items-per-page="adsPerPage" ng-click="changePage()"
                         ng-model="currentPage"
-                        max-size="maxSize" class="pagination" boundary-links="true" ng-show="showPager"></pagination>
-            <label ng-show="!showPager">No items match your search criteria. Please refine.</label>
+                        max-size="maxSize" class="pagination" boundary-links="true" ng-show="totalItems > adsPerPage"></pagination>
+            <label ng-show="totalItems == 0">No items match your search criteria.</label>
         </div>
 
     </section>
@@ -46,10 +46,10 @@
                 <hr/>
                 <div class="categories">
                     <div>
-                        <a href="" ng-click="filterAdsByCategory(0)">All</a>
+                        <a href="" ng-click="filterAdsByCategory(0)" class="filter">All</a>
                     </div>
                     <div ng-repeat="category in categories">
-                        <a href="" ng-click="filterAdsByTown(category.id)">{{ category.name
+                        <a href="" ng-click="filterAdsByCategory(category.id)" class="filter">{{ category.name
                             }}</a>
                     </div>
                 </div>
@@ -61,10 +61,10 @@
                 <hr/>
                 <div class="towns">
                     <div>
-                        <a href="" ng-click="filterAdsByTown(0)">All</a>
+                        <a href="" ng-click="filterAdsByTown(0)" class="filter">All</a>
                     </div>
                     <div ng-repeat="town in towns">
-                        <a href="" ng-click="filterAdsByTown(town.id)">{{ town.name }}</a>
+                        <a href="" ng-click="filterAdsByTown(town.id)" class="filter">{{ town.name }}</a>
                     </div>
                 </div>
             </div>

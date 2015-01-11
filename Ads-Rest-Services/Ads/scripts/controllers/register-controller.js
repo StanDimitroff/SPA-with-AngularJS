@@ -7,8 +7,7 @@ app.controller('RegisterController', function ($scope, Data, messages, $location
         if (registerForm.$valid) {
             Data.user.register(userData, $http, $q)
                 .then(function (data) {
-                    messages.successMessage('Your account has been successfully created. Please login.');
-                    $location.path('/login');
+                    s$location.path('/user/home');
                 });
         }
 

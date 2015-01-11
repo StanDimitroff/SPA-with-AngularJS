@@ -15,7 +15,7 @@
 
         Data.ads.add(adData, $http, $q)
         .then(function (data) {
-            messages.successMessage(data.message);
+            messages.successMessage('Advertisement submitted for approaval. Once approved, it will be published.');
             $location.path('/user/ads');
         })
     }

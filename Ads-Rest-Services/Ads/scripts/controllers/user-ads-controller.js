@@ -19,10 +19,9 @@
         Data.ads.deactivate(adId, $http, $q)
         .then(function (data) {
             Data.ads.getUserAll(-1, $scope.currentPage, $scope.adsPerPage, $http, $q)
-            .then(function (idata) {
-                $scope.userAds = idata;
-                $scope.totalItems = idata.numItems;
-                $scope.showPager = idata.numItems > $scope.adsPerPage;
+            .then(function (ads) {
+                $scope.userAds = ads;
+                $scope.totalItems = ads.numItems;
             })
 
         });
@@ -31,11 +30,9 @@
         Data.ads.publishAgain(adId, $http, $q)
         .then(function (data) {
             Data.ads.getUserAll(-1, $scope.currentPage, $scope.adsPerPage, $http, $q)
-            .then(function (idata) {
-                console.log(idata)
-                $scope.userAds = idata;
-                $scope.totalItems = idata.numItems;
-                $scope.showPager = idata.numItems > $scope.adsPerPage;
+            .then(function (ads) {
+                $scope.userAds = ads;
+                $scope.totalItems = ads.numItems;
             })
         });
     }
@@ -44,6 +41,5 @@
     .then(function (data) {
         $scope.userAds = data;
         $scope.totalItems = data.numItems;
-        $scope.showPager = data.numItems > $scope.adsPerPage;
     })
 });

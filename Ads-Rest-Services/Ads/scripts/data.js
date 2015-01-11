@@ -114,6 +114,8 @@ app.factory('Data', function ($http, $q, messages) {
             var url = this._serviceUrl + 'Register';
             return this._ajaxRequester.post(url, data, this._headers(), $http, $q)
 				.then(function (data) {
+				    globalCredentials.setSessionToken(data);
+				    globalCredentials.setUsername(data.username);
 				    return data;
 				});
         }

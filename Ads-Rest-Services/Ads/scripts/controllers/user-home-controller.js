@@ -19,7 +19,7 @@
             };
 
             $scope.filterAdsByTown = function (townId) {
-                $scope.currentCategory = townId;
+                $scope.currentTown = townId;
                 processAds();
             };
 
@@ -36,17 +36,11 @@
             Data.common.getAllCategories($http, $q)
                 .then(function (data) {
                     $scope.categories = data;
-                },
-                function (error) {
-                    console.log(error);
-                });
+                })
 
             Data.common.getAllTowns($http, $q)
                 .then(function (data) {
                     $scope.towns = data;
-                },
-                function (error) {
-                    console.log(error);
-                });
+                })
     })
 }());
