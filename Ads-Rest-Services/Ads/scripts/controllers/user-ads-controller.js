@@ -14,6 +14,9 @@
     $scope.editAd = function (adID) {
         $location.path('/user/ads/edit/' + adID);
     }
+    $scope.deleteAd = function (adID) {
+        $location.path('/user/ads/delete/' + adID);
+    }
 
     $scope.deactivateAd = function (adId) {
         Data.ads.deactivate(adId, $http, $q)

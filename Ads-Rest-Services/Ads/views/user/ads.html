@@ -26,7 +26,7 @@
                 <button class="btn btn-default btn-md submit" ng-click="deactivateAd(ad.id)" ng-show="ad.status == 'WaitingApproval' || ad.status =='Published'">Deactivate</button>
                 <button class="btn btn-default btn-md submit" ng-click="publishAgainAd(ad.id)" ng-hide="ad.status == 'WaitingApproval' || ad.status =='Published' ">Publish Again</button>
                 <a href="" ng-click="editAd(ad.id)" class="btn btn-default btn-md submit" ng-hide="ad.status == 'WaitingApproval' || ad.status =='Published'">Edit</a>
-                <a href="#/user/ads/delete" class="btn btn-default btn-md submit"  ng-hide="ad.status == 'WaitingApproval' || ad.status =='Published'">Delete</a>
+                <a href="" ng-click="deleteAd(ad.id)" class="btn btn-default btn-md submit" ng-hide="ad.status == 'WaitingApproval' || ad.status =='Published'">Delete</a>
 
             </div>
         </div>

@@ -1,33 +1,37 @@
-<section class="container-fluid">
+<section class="container-fluid" ng-controller="DeleteAdController" ng-init="getAd()">
     <div class="form col-lg-4 col-lg-offset-4">
         <header class="form-header">Confirm Deleting Ad?</header>
-        <hr/>
+        <hr />
         <div class="row">
             <div class="col-lg-6">
-                <h4 ng-style={"fontWeight":"bold"}>Title{{ ad.title }}</h4>
+                <h4 ng-style={"fontWeight":"bold"}>{{ ad.title }}</h4>
             </div>
             <div class="col-lg-6">
-                <time class="pull-right" ng-style={"fontWeight":"bold"}>Date{{ ad.date | date:'d-MMM-yyyy' }}</time>
+                <time class="pull-right" ng-style={"fontWeight":"bold"}>{{ ad.date | date:'d-MMM-yyyy' }}</time>
             </div>
 
             <div class="image-container">
-                <img ng-src="{{ ad.imageDataUrl }}" class="img"/>
-                <img data-ng-if="!ad.imageDataUrl" ng-src="images/no-image.png" class="img"/>
+                <img ng-src="{{ ad.imageDataUrl }}" class="img" />
+                <img data-ng-if="!ad.imageDataUrl" ng-src="images/no-image.png" class="img" />
             </div>
 
-            <div class="well well-md ad-text ">Text{{ ad.text }}</div>
-            <span>Category:</span>
+            <div class="well well-md ad-text ">{{ ad.text }}</div>
+            <div ng-show="ad.categoryName">
+                <span>Category:</span>
 
-            <div class="well well-sm ownerInfo">Cat{{ ad.ownerName }}</div>
-            <span>Town:</span>
+                <div class="well well-sm " ng-show="ad.categoryName">{{ ad.categoryName }}</div>
+            </div>
+            <div ng-show="ad.townName">
+                {{ town.name }}>
+                <span>Town:</span>
 
-            <div class="well well-sm ownerInfo">Town</a></div>
-
+                <div class="well well-sm " </a></div>
+            </div>
         </div>
 
-            <button class="btn btn-default btn-md submit">Delete</button>
-            <a href="#/user/ads" class="btn btn-default btn-md submit">Cancel</a>
-        </div>
+        <button class="btn btn-default btn-md submit" ng-click="deleteAd(ad.id)">Delete</button>
+        <a href="#/user/ads" class="btn btn-default btn-md submit">Cancel</a>
+    </div>
 
     </div>
 </section>

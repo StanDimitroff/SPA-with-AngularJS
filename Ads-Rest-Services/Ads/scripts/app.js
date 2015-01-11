@@ -32,7 +32,7 @@ var app = angular
             {
                 templateUrl: 'views/user/edit-ad.html'
             })
-            .when('/user/ads/delete',
+            .when('/user/ads/delete/:id',
             {
                 templateUrl: 'views/user/delete-ad.html'
             })
