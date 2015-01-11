@@ -10,6 +10,9 @@ html, body {
     font-family: Calibri, sans-serif;
 }
 
+.clear {
+    clear:both;
+}
 #wrapper {
     background-color: #E2F0D9;
     min-height: 100%;
@@ -38,9 +41,25 @@ html, body {
     z-index: 100;
 }
 
+#page-header ul {
+    list-style:none;
+    display:inline-block;
+    position: absolute;
+    top: 0;
+    right: 20px;
+    line-height: 40px;
+}
+
+#page-header ul li{
+    list-style:none;
+    display:inline-block;
+    padding-left:20px;
+}
+
 /*footer*/
 #page-footer, #wrapper:after {
     height: 40px;
+    clear:both;
 }
 
 #page-footer {
@@ -55,10 +74,14 @@ html, body {
 }
 
 /*left sidebar*/
+aside.navigation {
+    position:absolute;
+    top:40px;
+    padding:20px 0px 0px 20px;
+}
+
 div.left-sidebar {
-    position: fixed;
-    top: 360px;
-    left: 50px;
+    margin-top:20px;
     border: 1px solid #548235;
     background-color: #A9D18E;
     box-shadow: 0 0 8px #888888;
@@ -175,7 +198,7 @@ div.ad-text {
 }
 
 div.filters {
-    position: fixed;
+    position: absolute;
     top: 40px;
     right: 60px;
 }
@@ -194,9 +217,6 @@ div.categories, div.towns {
 }
 
 div#left-nav {
-    position: fixed;
-    top: 60px;
-    left: 50px;
     border: 1px solid #548235;
     background-color: #A9D18E;
     box-shadow: 0 0 8px #888888;

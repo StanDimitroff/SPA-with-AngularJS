@@ -1,7 +1,7 @@
 'use strict';
 
 var app = angular
-    .module('app', ['ngRoute', 'ui.bootstrap'])
+    .module('app', ['ngRoute', 'ui.bootstrap', 'naif.base64'])
     .config(function ($routeProvider) {
         $routeProvider
             .when('/home',
@@ -28,7 +28,7 @@ var app = angular
             {
                 templateUrl: 'views/user/publish-ad.html'
             })
-            .when('/user/ads/edit',
+            .when('/user/ads/edit/:id',
             {
                 templateUrl: 'views/user/edit-ad.html'
             })
@@ -40,14 +40,25 @@ var app = angular
             {
                 templateUrl: 'views/user/edit-profile.html'
             })
-
+            .when('/admin/home',
+            {
+                templateUrl: 'views/user/edit-profile.html'
+            })
+            .when('/loading',
+            {
+                templateUrl: 'views/loading.html'
+            })
             .otherwise({
-                redirectTo: '/home'
+                redirectTo: '/loading'
             })
     })
     .constant(
     {
-        'rootUrl': 'http://softuni-ads.azurewebsites.net/api/',
         'adsPerPage': 2,
         'maxPagerSize': 5
     });
+
+var baseUrl = 'http://localhost:1337/api'
+
+var adsPerPage = 2;
+var maxPagerSize = 5

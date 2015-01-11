@@ -1,17 +1,13 @@
-app.controller('LoginController', function (rootUrl, $scope, authData, messages, $location) {
+app.controller('LoginController', function ($scope, Data, messages, $location, $http, $q) {
     $scope.login = function (userData, loginForm) {
         $scope.loginForm = loginForm;
         $scope.user = userData;
 
         if($scope.loginForm.$valid){
-            authData.login(rootUrl, userData)
+            Data.user.login(userData, $http, $q)
                 .then(function (data) {
-                    $location.path('/user/home');
-                },
-                function () {
-                    messages.errorMessage('Invalid login');
-                    $scope.loginForm.$setPristine();
-                    $scope.user = null;
+                    messages.successMessage('Welcome ' + data.username);
+                    $location.path('/loading');
                 })
         }
     }

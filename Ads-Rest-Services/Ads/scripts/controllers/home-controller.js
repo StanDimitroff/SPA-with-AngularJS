@@ -1,10 +1,12 @@
 (function () {
-    app.controller('HomeController', function (rootUrl, adsPerPage, maxPagerSize, $scope, adsData, $anchorScroll, $location) {
+    app.controller('HomeController', function (adsPerPage, maxPagerSize, $scope, Data, $anchorScroll, $location, $http, $q) {
         $scope.currentPage = 1;
         $scope.adsPerPage = adsPerPage;
         $scope.maxSize = maxPagerSize;
+        $scope.currentCategory = 0;
+        $scope.currentTown = 0;
         $scope.changePage = function () {
-            adsData.getAllAdsPerPage(rootUrl + 'ads', $scope.adsPerPage, $scope.currentPage)
+            Data.ads.getGuestAll(0, 0, $scope.adsPerPage, $scope.currentPage, $http, $q)
                 .then(function (data) {
                     $scope.ads = data;
                     $('html, body').animate({ scrollTop: 0 }, 'slow');
@@ -12,26 +14,26 @@
         };
 
         $scope.filterAdsByCategory = function (categoryId) {
-            $scope.category = categoryId;
-            adsData.getAdsByCategory(rootUrl + 'ads', categoryId)
-                .then(function (data) {
-                    $scope.ads = data;
-                    $scope.totalItems = data.numItems;
-                })
+            $scope.currentCategory = categoryId;
+            processAds();
         };
 
-        $scope.filterByTown = function (townId) {
-            $scope.town = townId;
-
+        $scope.filterAdsByTown = function (townId) {
+            $scope.currentCategory = townId;
+            processAds();
         };
 
-        adsData.getAllAdsPerPage(rootUrl + 'ads', $scope.adsPerPage, $scope.currentPage)
+        var processAds = function () {
+            Data.ads.getGuestAll($scope.currentCategory, $scope.currentTown, $scope.currentPage, $scope.adsPerPage, $http, $q)
             .then(function (data) {
                 $scope.ads = data;
                 $scope.totalItems = data.numItems;
+                $scope.showPager = data.numItems > $scope.adsPerPage;
             });
+        }
+        processAds();
 
-        adsData.getAllCategories(rootUrl + 'categories')
+        Data.common.getAllCategories($http, $q)
             .then(function (data) {
                 $scope.categories = data;
             },
@@ -39,7 +41,7 @@
                 console.log(error);
             });
 
-        adsData.getAllTowns(rootUrl + 'towns')
+        Data.common.getAllTowns($http, $q)
             .then(function (data) {
                 $scope.towns = data;
             },

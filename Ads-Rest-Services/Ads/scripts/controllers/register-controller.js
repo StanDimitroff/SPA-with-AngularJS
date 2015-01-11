@@ -1,21 +1,15 @@
-app.controller('RegisterController', function (rootUrl, $scope, adsData, authData, messages, $location) {
-    adsData.getAllTowns(rootUrl + 'towns')
+app.controller('RegisterController', function ($scope, Data, messages, $location, $http, $q) {
+    Data.common.getAllTowns()
         .then(function (data) {
             $scope.towns = data;
         });
     $scope.register = function (userData, registerForm) {
         if (registerForm.$valid) {
-            authData.register(rootUrl, userData)
+            Data.user.register(userData, $http, $q)
                 .then(function (data) {
-                    messages.successMessage('User account created. Please login');
-                    console.log(data);
+                    messages.successMessage('Your account has been successfully created. Please login.');
                     $location.path('/login');
-                },
-                function () {
-                    messages.errorMessage('Registration unsuccessful. Try again');
-                    $scope.loginForm.$setPristine();
-                    $scope.user = null;
-                })
+                });
         }
 
     }
