@@ -13,16 +13,16 @@
             <p ng-cloak id="top">Ads &ndash; {{ headerText }}</p>
         </div>
         <ul ng-show="userLogged" ng-hide="!userLogged">
-            <li>{{userName}}</li>
+            <li ng-cloak>{{userName}}</li>
             <li><a href="" ng-click="logout()">Logout</a></li>
         </ul>
     </header>
 
     <aside class="navigation">
-        <div ng-show="guestNav" ng-hide="!guestNav" ng-include="'views/shared/navigation.html'"></div>
-        <div ng-show="userNav" ng-hide="!userNav" ng-include="'views/shared/user-navigation.html'"></div>
-        <div ng-show="adminNav" ng-hide="!adminNav" ng-include="'views/shared/admin-navigation.html'"></div>
-        <div ng-show="guestNav" ng-hide="!guestNav" ng-include="'views/guest/sidebar.html'"></div>
+        <div ng-show="guestNav" ng-hide="!guestNav" ng-include="'views/shared/navigation.html'" ng-cloak></div>
+        <div ng-show="userNav" ng-hide="!userNav" ng-include="'views/shared/user-navigation.html'" ng-cloak></div>
+        <div ng-show="adminNav" ng-hide="!adminNav" ng-include="'views/shared/admin-navigation.html'" ng-cloak></div>
+        <div ng-show="guestNav" ng-hide="!guestNav" ng-include="'views/guest/sidebar.html'" ng-cloak></div>
         <div class="clear"></div>
     </aside>
 
@@ -56,6 +56,7 @@
     <script src="scripts/controllers/user-ads-controller.js"></script>
     <script src="scripts/controllers/edit-ad-controller.js"></script>
     <script src="scripts/controllers/delete-ad-controller.js"></script>
+    <script src="scripts/controllers/edit-profile-controller.js"></script>
 
     <script src="scripts/controllers/register-controller.js"></script>
 </body>

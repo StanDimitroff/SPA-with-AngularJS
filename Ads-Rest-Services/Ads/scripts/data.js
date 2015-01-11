@@ -106,6 +106,7 @@ app.factory('Data', function ($http, $q, messages) {
 				.then(function (data) {
 				    globalCredentials.setSessionToken(data);
 				    globalCredentials.setUsername(data.username);
+				    //globalCredentials.setUserId(data.username);
 				    return data;
 				});
         }
@@ -131,19 +132,22 @@ app.factory('Data', function ($http, $q, messages) {
 
         User.prototype.changePassword = function (data, $http, $q) {
             var url = this._serviceUrl + 'ChangePassword';
-            return this._ajaxRequester.put(url, data, this._headers())
+            return this._ajaxRequester.put(url, data, this._headers(), $http, $q)
 				.then(function (data) {
 				    return data;
 				});
         }
 
-        User.prototype.getProfile = function (objectId, $http, $q) {
-            return this._ajaxRequester.get(this._serviceUrl + 'Profile/' + objectId, this._headers());
+        User.prototype.getProfile = function ($http, $q) {
+            return this._ajaxRequester.get(this._serviceUrl + 'Profile', this._headers(), $http, $q)
+            .then(function (data) {
+                return data;
+            });
         }
 
         User.prototype.editProfile = function (data, $http, $q) {
             var url = this._serviceUrl + 'Profile';
-            return this._ajaxRequester.put(url, data, this._headers())
+            return this._ajaxRequester.put(url, data, this._headers(), $http, $q)
 				.then(function (data) {
 				    return data;
 				});
