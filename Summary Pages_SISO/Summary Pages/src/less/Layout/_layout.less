@@ -1,0 +1,55 @@
+// Mixins
+.section() {
+    padding-top: 20px;
+}
+
+.container {
+    padding-bottom: 100px;
+}
+
+/**
+    -- Gallery
+*/
+#gallery {
+    .section();
+    min-height: 413px;
+    
+    ul { list-style: none; }
+}
+
+/**
+    -- Info
+*/
+#info {
+    .section();
+}
+
+/**
+    -- Message
+*/
+#message {
+    .section();
+    
+    h1 { .sectionHeading(); }
+    ul { list-style: none; margin: 0 15px 0; padding: 0; }
+}
+
+/**
+    -- Vehicle
+*/
+#vehicle {
+    .section();
+    
+    h1 { .sectionHeading(); margin-bottom: 0; }
+    ul { list-style: none; margin: 0; padding: 0; }
+}
+
+/**
+    -- Comments
+*/
+#comment {
+    .section();
+    
+    h1 { .sectionHeading(); }
+    ul { list-style: none; margin: 0; padding: 0; }
+}

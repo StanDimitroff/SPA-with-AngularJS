@@ -1,0 +1,41 @@
+.info-employee {
+    position: relative;
+    background: @clr-base-lightest;
+    margin-top: 10px;
+    padding: 20px;
+    
+    ul { 
+        list-style: none;
+        margin: 0; padding: 0;
+    }
+}
+.info-emp-label {
+    font-size: 10px;
+    line-height: 1.2em ; // 12px
+    text-transform: uppercase;
+    color: @clr-base-light;
+}
+.info-emp-value {
+    margin-bottom: 4px;
+    line-height: 1.2142857143em; // 17px
+    color: @clr-base;
+}
+.info-emp-photo {
+    @width: 58px;
+    
+    position: absolute;
+    .square(@width);
+    padding: 15px 0;
+    top: 20px;
+    right: 20px;
+    background: @clr-base;
+    background-size: cover;
+    background-position: center center;
+    border-radius: @width / 2;
+    text-align: center;
+    
+    .icon {
+        font-size: 28px;
+        color: @clr-base-lightest;
+    }
+}

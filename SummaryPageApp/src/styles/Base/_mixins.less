@@ -1,0 +1,57 @@
+
+// Responsive
+.desktop-hd(@rules) {
+    @media (min-width: @screen-lg-min) { @rules(); }
+}
+.desktop(@rules) {
+    @media (min-width: @screen-md-min) { @rules(); }
+}
+.tablet(@rules) {
+    @media (min-width: @screen-sm-min) { @rules(); }
+}
+.phone(@rules) {
+    @media (max-width: @screen-sm-min) { @rules(); }
+}
+
+// remove padding from columns same as .row from bootstrap
+.makeRow() {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+// Transforms
+.transform(@string){
+    -webkit-transform: @string;
+    -moz-transform:    @string;
+    -ms-transform: 	   @string;
+    -o-transform: 	   @string;
+    transform:         @string;
+}
+
+
+// Selection
+
+.noSelection() {
+    -webkit-user-select: none;  /* Chrome all / Safari all */
+    -moz-user-select: none;     /* Firefox all */
+    -ms-user-select: none;      /* IE 10+ */
+
+    -o-user-select: none;
+    user-select: none;   
+}
+
+
+// Summary base icon
+.base-icon() {
+    // icon
+    font-family: 'summary';
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}

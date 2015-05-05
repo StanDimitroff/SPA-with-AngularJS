@@ -1,0 +1,38 @@
+// Mixins
+.commentInfo() { display: inline-block; }
+.commentIcon() {
+    float: left;
+    text-align: left;
+    margin: 5px 0;
+
+    font-size: 24px;
+}
+.commentsInfoUL() {
+    ul { 
+        display: inline-block;
+        float: left;
+    }
+}
+.commentName() {
+    margin-left: 10px;
+    text-align: left;
+    line-height: 1.2857142857em; // 18px;
+}
+.commentTimestamps() {
+    margin-left: 10px;;
+    font-size: 12px;
+    text-align: left;
+    line-height: 1.3333333333em; // 16px;
+    font-weight: 300;
+}
+.commentMSG() {
+    margin-top: 10px;
+
+    p {
+        max-width: 80%;
+        padding: 10px;
+        .border-bottom-radius(19px);
+        text-align: left;
+        line-height: 1.2857142857em; // 18px;
+    }
+}

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="SummaryPage">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" co ntent="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Video1st Summary Page</title>
+
+        <!-- Fonts -->
+        <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Arvo:700' rel='stylesheet' type='text/css'>
+
+        <link rel="stylesheet" href="styles/main.css">
+        <link rel="stylesheet" href="styles/icomoon/style.css">
+
+        <!-- jQuery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <!-- jQuery touchSwipe -->
+        <script src="scripts/jquery.touchSwipe.min.js"></script>
+        <!-- GreenSock -->
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/latest/TweenMax.min.js"></script>
+        <!-- Angular -->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.13/angular.js"></script>
+        <!-- Slider -->
+        <script type="text/javascript" src="scripts/slider.min.js"></script>
+        <!-- Main script -->
+        <script src="scripts/main.js"></script>
+    </head>
+    <body>
+        <div class="container" ng-controller="SummaryController">
+            <div class="row">
+                <div class="logo text-hide" ng-style="{'background-image':'url({{ summaryData.LogoURL }})'}"></div>
+            </div> <!-- end row -->
+
+            <div class="row">
+                <section id="gallery" class="col-lg-6 col-md-6 col-sm-12" ng-controller="AppController">
+
+                    <div class="gallery-slider">
+                        <ul slider-touch>
+                            <li class="active" style="background-image: url(../images/image-01.jpg)" image>Image 1</li>
+                            <li class="video" image ng-repeat="video in video">
+                                <video width="100%" height="100%" controls video>
+                                    <source ng-src="{{ video.URL }}" type="video/mp4">
+                                    <source ng-src="{{ video.URL }}" type="video/ogv">
+<!--
+                                    <source src="../video/640x480.mp4" type="video/mp4">
+                                    <source src="../video/640x480.ogv" type="video/ogv">
+-->
+                                    Your browser does not support the video tag.
+                                </video>
+                            </li>
+                            <li ng-repeat="photo in photos" ng-style="{'background-image':'url({{ photo.URL }})'}"></li>
+                        </ul>
+                        <nav class="slider-nav">
+                            <div class="slider-nav-btn prev" slider-nav>
+                                Prev
+                                <span class="icon icon-arrow-left2"></span>
+                            </div>
+                            <div class="slider-nav-btn next" slider-nav>
+                                Next
+                                <span class="icon icon-arrow-right2"></span>
+                            </div>
+                        </nav>
+                    </div> <!-- end slider -->
+
+                    <div class="gallery-thumbs" ng-controller="ThumbnailCtrl">
+                        <ul>
+                            <li ng-click="activateThumb($event)" ng-repeat="thumbnail in thumbnails" ng-style="{'background-image':'url({{ thumbnail.URL }})'}" thumb></li>
+
+                            <li class="active" style="background-image: url(../images/image-01.jpg)" ng-click="activateThumb($event)" thumb>Thumb 01</li>
+                            <li class="video" style="background-image: url(../images/image-02.jpg)" ng-click="activateThumb($event)" thumb >Thumb 02</li>
+
+                            <li style="background-image: url(../images/image-09.jpg)" ng-click="activateThumb($event)" thumb is-last="true">Thumb 09</li>
+                        </ul>
+                    </div> <!-- end thumbs -->
+
+                </section> <!-- end gallery -->
+
+                <section id="info" class="col-lg-6 col-md-6 col-sm-12">
+                    <div class="clearfix">
+                        <div class="info-reg-plate">
+                            <p>{{ event.Registration }}</p>
+                        </div> <!-- end reg-plate -->
+                        <div class="info-reference clearfix">
+                            <span class="icon-book info-ref-icon"></span>
+                            <p class="info-ref-label">REFERENCE:</p>
+                            <p class="info-ref-number">{{ event.Reference }}</p>
+                        </div> <!-- end reference -->
+                        <div class="info-comments">
+                            <a href="#" class="btn btn-success info-comments-btn">
+                                <div class="info-comments-content clearfix">
+                                    <span class="icon-bubbles3 info-comments-icon"></span>
+                                    <span class="info-comments-text">Comments ({{ comments.lenght }})</span>
+                                </div> <!-- end content -->
+                            </a> <!-- end info-comments-btn -->
+                        </div> <!-- end comments -->
+                    </div> <!-- end clearfix -->
+                    <div class="info-employee">
+                        <ul>
+                            <li class="info-emp-label">Your Service Advisor:</li>
+                            <li class="info-emp-value">{{ advisor.Name }}</li>
+                            <li class="info-emp-label">Phone:</li>
+                            <li class="info-emp-value">0845 413 0000</li>
+                            <li class="info-emp-label">Email:</li>
+                            <li class="info-emp-value">
+                                <a href="mailto:{{ advisor.Email }}">{{ advisor.Email }}</a>
+                            </li>
+                        </ul>
+                        <div class="info-emp-photo">
+                            <!-- <span class="icon icon-user"></span> -->
+                            <img src="{{ advisor.UserPhotoURL }}" alt="">
+                        </div> <!-- end info-emp-photo -->
+                    </div> <!-- end info-employee -->
+                </section> <!-- end info -->
+
+                <section id="message" class="col-lg-6 col-md-6 col-sm-12">
+                    <h1>Message</h1>
+                    <ul>
+                        <li class="msg-to">Dear Mr {{ event.CustomerFullName }},</li>
+                        <li class="msg-content">
+                            <p>{{ event.Message }}</p>
+                        </li> <!-- end msg content -->
+                        <li class="msg-from">
+                           Regards,<br>
+                           {{ advisor.Name }}
+                        </li> <!-- end msg from -->
+                    </ul>
+                </section> <!-- end message -->
+            </div> <!-- end row -->
+
+
+            <div class="row">
+                <section id="vehicle" class="col-lg-6 col-md-6 col-sm-12">
+                    <h1>Vehicle Details</h1>
+                    <ul>
+                        <li class="vehicle-label">Make</li>
+                        <li class="vehicle-value" ng-cloak>{{ vehicleDetails.Make }}</li>
+                        <li class="vehicle-label">Model Range</li>
+                        <li class="vehicle-value" ng-cloak>{{ vehicleDetails.ModelRange }}</li>
+                        <li class="vehicle-label">Model Variant</li>
+                        <li class="vehicle-value" ng-cloak>{{ vehicleDetails.ModelVariant }}</li>
+                        <li class="vehicle-label">Model Series</li>
+                        <li class="vehicle-value" ng-cloak>{{ vehicleDetails.ModelSeries }}</li>
+                        <li class="vehicle-label">Model Style</li>
+                        <li class="vehicle-value" ng-cloak>{{ vehicleDetails.BodyStyle }}</li>
+                        <li class="vehicle-label">Model Colour</li>
+                        <li class="vehicle-value" ng-cloak>{{ vehicleDetails.Colour }}</li>
+                        <li class="vehicle-label">Seats</li>
+                        <!-- <li class="vehicle-value" ng-cloak>{{ vehicleDetails.ModelRange }}</li> -->
+                    </ul>
+
+
+                    <h1>Ancillary Information</h1>
+                    <ul>
+                        <li class="vehicle-label">Gears</li>
+                        <li class="vehicle-value" ng-cloak>{{ ancillaryInfo.Gears }}</li>
+                        <li class="vehicle-label">Transmission</li>
+                        <li class="vehicle-value" ng-cloak>{{ ancillaryInfo.Transmission }}</li>
+                        <li class="vehicle-label">Drive Type</li>
+                        <li class="vehicle-value" ng-cloak>{{ ancillaryInfo.DriveType }}</li>
+                        <li class="vehicle-label">Vin</li>
+                        <li class="vehicle-value" ng-cloak>{{ ancillaryInfo.VIN }}</li>
+                        <li class="vehicle-label">Engine Number</li>
+                        <li class="vehicle-value" ng-cloak>{{ ancillaryInfo.EngineNumber }}</li>
+                        <li class="vehicle-label">Engine Code</li>
+                        <li class="vehicle-value" ng-cloak>{{ ancillaryInfo.EngineModelCode }</li>
+                        <li class="vehicle-label">Date Registered</li>
+                        <li class="vehicle-value" ng-cloak>{{ ancillaryInfo.DateRegistered }}</li>
+                    </ul>
+
+                    <h1>Ownership</h1>
+                    <ul>
+                        <li class="vehicle-label">Previous Owners</li>
+                        <li class="vehicle-value" ng-cloak>{{ ownership.PreviousKeepers }}</li>
+                        <li class="vehicle-label">Current Owner Start</li>
+                        <li class="vehicle-value" ng-cloak>{{ ownership.CurrentKeeperStart }}</li>
+                        <li class="vehicle-label">Cherished Transfer</li>
+                        <li class="vehicle-value" ng-cloak>{{ ownership.CherishedTransfer }}</li>
+                        <li class="vehicle-label">Ni Import</li>
+                        <li class="vehicle-value" ng-cloak>{{ ownership.NIImport }}</li>
+                        <li class="vehicle-label">Outside EU Import</li>
+                        <li class="vehicle-value" ng-cloak>{{ ownership.OutsideEUImport }}</li>
+                        <li class="vehicle-label">Scrapped</li>
+                        <li class="vehicle-value" ng-cloak>{{ ownership.Scrapped }</li>
+                    </ul>
+
+                    <h1>Consumption</h1>
+                    <ul>
+                        <li class="vehicle-label">Fuel Type</li>
+                        <li class="vehicle-value" ng-cloak>{{ consumption.CombinedFuelType }}</li>
+                        <li class="vehicle-label">CO2 Emmissions</li>
+                        <li class="vehicle-value" ng-cloak>{{ consumption.C02 }}</li>
+                        <li class="vehicle-label">Combined MPG</li>
+                        <li class="vehicle-value" ng-cloak>{{ consumption.FuelConsumptionCombinedMPG }}</li>
+                        <li class="vehicle-label">Motorway MPG</li>
+                        <li class="vehicle-value" ng-cloak>{{ consumption.FuelConsumptionExtraUrbanMPG }}</li>
+                        <li class="vehicle-label">Urban MPG</li>
+                        <li class="vehicle-value" ng-cloak>{{ consumption.FuelConsumptionUrbanMPG }}</li>
+                        <li class="vehicle-label">Scrapped</li>
+                        <li class="vehicle-value" ng-cloak>{{ consumption.Message }</li>
+                    </ul>
+                </section> <!-- end vehicle details -->
+
+
+                <section id="comment" class="col-lg-6 col-md-6 col-sm-12">
+                    <h1>Comments ({{ comments.length }})</h1>
+
+                    <div class="comment-list">
+                        <ul>
+                            <li class="comment-customer" ng-repeat="comment in comments">
+                                <div class="info customer clearfix">
+                                    <span class="icon icon-user-tie customer"></span>
+                                    <ul>
+                                        <li class="name customer">Mr {{ comment.CreatedBy }}</li>
+                                        <li class="timestamps customer">{{ comment.DateCreated }}</li>
+                                    </ul>
+                                </div>
+
+                                <div class="msg customer">
+                                    <p>{{ comment.Message }}</p>
+                                </div>
+                            </li> <!-- comment-customer -->
+
+
+                            <li class="comment-employee">
+                                <div class="info employee clearfix">
+                                    <span class="icon icon-shield employee"></span>
+                                    <ul>
+                                        <li class="name employee">Jon Ridley</li>
+                                        <li class="timestamps employee">6 February at 18:35</li>
+                                    </ul>
+                                </div>
+
+                                <div class="msg employee">
+                                    <p>
+                                        But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account
+                                    </p>
+                                </div>
+                            </li> <!-- coment-employee -->
+                        </ul>
+                    </div> <!-- end comments-list -->
+
+                    <div class="comment-new">
+                        <div class="comment-new-label"> Add a comment: </div>
+
+                        <div class="comment-new-content">
+                            <textarea class="form-control" rows="3"></textarea>
+                        </div>
+
+                        <div class="comment-new-remaining"> (2000 characters remaining)</div>
+
+                        <button class="btn btn-info comment-new-btn" ng-click="sendComment()">Send Comment</button>
+                    </div> <!-- end comments-new -->
+                </section> <!-- end comments -->
+            </div>
+        </div> <!-- end container -->
+        <script src="//localhost:35729/livereload.js"></script>
+    </body>
+</html>
