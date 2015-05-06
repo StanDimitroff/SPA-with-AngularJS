@@ -2809,6 +2809,9 @@ input[type="button"].btn-block {
 body {
   font-family: 'Lato';
 }
+a {
+  color: #15b4f7;
+}
 .container {
   padding-bottom: 100px;
 }

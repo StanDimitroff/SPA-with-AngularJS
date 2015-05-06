@@ -7,18 +7,18 @@ angular.module('Page.controllers')
         Data.summary.getData()
         .then(function(data){
             console.log(data);
-            $scope.summaryData = data;
-            $scope.event = summaryData.Event;
-            $scope.advisor = summaryData.Advisor;
-            $scope.VehicleRunningCosts = summaryData.VehicleRunningCosts;
-            $scope.comments = summaryData.Comments;
-            $scope.vehicleDetails = summaryData.VehicleDetails;
-            $scope.ancillaryInfo = summaryData.AncillaryInformation;
-            $scope.ownership = summaryData.Ownership;
-            $scope.consumption = summaryData.Consumption;
-            $scope.photos = summaryData.Photos;
-            $scope.videos = summaryData.Videos;
-            $scope.thumbnails = $scope.photos.concat($scope.videos);
+            // $scope.summaryData = data;
+            // $scope.event = summaryData.Event;
+            // $scope.advisor = summaryData.Advisor;
+            // $scope.VehicleRunningCosts = summaryData.VehicleRunningCosts;
+            // $scope.comments = summaryData.Comments;
+            // $scope.vehicleDetails = summaryData.VehicleDetails;
+            // $scope.ancillaryInfo = summaryData.AncillaryInformation;
+            // $scope.ownership = summaryData.Ownership;
+            // $scope.consumption = summaryData.Consumption;
+            // $scope.photos = summaryData.Photos;
+            // $scope.videos = summaryData.Videos;
+            // $scope.thumbnails = $scope.photos.concat($scope.videos);
 
         }, function(error){
             console.log(error)

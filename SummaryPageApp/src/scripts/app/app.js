@@ -1,6 +1,6 @@
 'use strict';
 
-var apiUrl = 'https://api.devvideo1st.com/Video1st/GetSummaryData';
+var apiUrl = 'https://api.video1st.com/Video1st/GetSummaryData';
 
 angular.module('SummaryPage', ['Page.controllers', 'Page.factories', 'Page.services', 'Slider']);
 

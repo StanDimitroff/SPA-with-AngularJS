@@ -2,7 +2,7 @@
 <html lang="en" ng-app="SummaryPage">
     <head>
         <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" co ntent="IE=edge">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Video1st Summary Page</title>
 
@@ -22,18 +22,18 @@
         <!-- Angular -->
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.13/angular.js"></script>
         <!-- Slider -->
-        <script type="text/javascript" src="scripts/slider.min.js"></script>
+        <!-- // <script type="text/javascript" src="scripts/slider.min.js"></script> -->
         <!-- Main script -->
         <script src="scripts/main.js"></script>
     </head>
     <body>
-        <div class="container" ng-controller="SummaryController">
+        <div class="container" ng-controller="SummaryController" ng-init="loadSummaryData()">
             <div class="row">
                 <div class="logo text-hide" ng-style="{'background-image':'url({{ summaryData.LogoURL }})'}"></div>
             </div> <!-- end row -->
 
             <div class="row">
-                <section id="gallery" class="col-lg-6 col-md-6 col-sm-12" ng-controller="AppController">
+                <section id="gallery" class="col-lg-6 col-md-6 col-sm-12"  ng-controller="AppController">
 
                     <div class="gallery-slider">
                         <ul slider-touch>
@@ -67,10 +67,10 @@
                         <ul>
                             <li ng-click="activateThumb($event)" ng-repeat="thumbnail in thumbnails" ng-style="{'background-image':'url({{ thumbnail.URL }})'}" thumb></li>
 
-                            <li class="active" style="background-image: url(../images/image-01.jpg)" ng-click="activateThumb($event)" thumb>Thumb 01</li>
-                            <li class="video" style="background-image: url(../images/image-02.jpg)" ng-click="activateThumb($event)" thumb >Thumb 02</li>
+                            <li class="active" style="background-image: url(images/image-01.jpg)" ng-click="activateThumb($event)" thumb>Thumb 01</li>
+                            <li class="video" style="background-image: url(images/image-02.jpg)" ng-click="activateThumb($event)" thumb >Thumb 02</li>
 
-                            <li style="background-image: url(../images/image-09.jpg)" ng-click="activateThumb($event)" thumb is-last="true">Thumb 09</li>
+                            <li style="background-image: url(images/image-09.jpg)" ng-click="activateThumb($event)" thumb is-last="true">Thumb 09</li>
                         </ul>
                     </div> <!-- end thumbs -->
 
@@ -198,7 +198,7 @@
                         <li class="vehicle-label">Scrapped</li>
                         <li class="vehicle-value" ng-cloak>{{ consumption.Message }</li>
                     </ul>
-                </section> <!-- end vehicle details -->
+                </section> <!-- end vehicle info -->
 
 
                 <section id="comment" class="col-lg-6 col-md-6 col-sm-12">

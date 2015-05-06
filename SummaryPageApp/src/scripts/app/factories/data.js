@@ -53,7 +53,7 @@ angular.module('Page.factories')
         Summary.prototype.sendComment = function(){
 
         }
-        
+
         return Summary;
     }());
 
